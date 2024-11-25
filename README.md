@@ -1,23 +1,111 @@
 
+# QueryPulse
 
-## Next steps
-move all URLs into .env
-change all endpoints to be compatible with running container
-create a network
-create facility to create index and reindex the data
-re-design the UI after going through CSS and tailwind
+QueryPulse is a semantic Q&A search engine built to provide precise and time-efficient search and filtering capabilities using advanced NLP models and Elasticsearch embeddings. 
 
-# Guide
-Set up and start the docker container by this tutorial: https://github.com/elastic/start-local (note the usename, pass, and api key ..these are important)
-start the docker container by navigatin to created directory and execyting ./start.sh (stop by ./stop.sh ..follow the above link for more)
-Now pull the QueryPulse from this link: https://github.com/Prashu7487/QueryPulse.git
-move the data folder in the QueryPulse directory
-create an virtual environment inside the backend directory of QueryPulse and install the requirements.txt present in the same dir.
-goto backend directory and create an .env file and paste your details (such as API_KEY) there
-go back to QueryPulse directory and run index_ES.py file to create and index the documents (data/Questions.csv file needed, see index_ES for modifications if needed)
-activate the venv by being in the backend directory
-start the fastAPI server uvicorn main:app --reload
-navigate back to frontend dir and start the client npm run dev
+
+## Features
+- Semantic search using NLP and Elasticsearch.
+- Efficient indexing and data pipelines.
+- Integration with a web interface.
+
+---
+
+## Demo
+A demo video showcasing the application's features is available. Click the image below to view the demo vdo:
+
+[![Demo Video](./demo/home_page.png)](./demo/demo_recording.mp4)
+
+## Setup and Installation
+
+### Prerequisites
+1. **Docker**: Ensure Docker is installed and running on your system.
+2. **Node.js**: For running the frontend.
+3. **Python**: Required for the backend setup.
+4. **Elasticsearch**: Set up using Docker (see the guide below).
+
+---
+
+### Steps to Get Started
+
+#### 1. Set Up Elasticsearch
+Follow the tutorial to set up and start an Elasticsearch Docker container:
+[Elastic Local Setup Guide](https://github.com/elastic/start-local)
+
+- Note down the **username**, **password**, and **API key** during the setup.
+- Start the container:
+  ```bash
+  ./start.sh
+  ```
+- Stop the container:
+  ```bash
+  ./stop.sh
+  ```
+#### 2. Clone the QueryPulse Repository
+
+```bash
+git clone https://github.com/Prashu7487/QueryPulse.git
+cd QueryPulse
+```
+#### 3. Prepare Data
+Move the data folder into the root of the QueryPulse directory:
+```bash
+mv /path/to/data ./QueryPulse/data
+```
+
+#### 4. Set Up the Backend
+Navigate to the backend directory:
+```bash
+cd backend
+
+# Create a virtual environment:
+python -m venv venv
+source venv/bin/activate  # For Linux/macOS
+
+#Install required Python packages:
+pip install -r requirements.txt
+```
+#### Create a .env file in the backend directory and add your details (e.g., API_KEY, Elasticsearch credentials):
+```env
+API_KEY=your_api_key
+ELASTIC_USERNAME=your_username
+ELASTIC_PASSWORD=your_password
+```
+
+#### 5. Index the Data (make sure ES container is running before this step)
+Navigate back to the QueryPulse directory:
+```bash
+cd ..
+
+# Run the indexing script to create and index documents:
+python index_ES.py
+
+Note: Ensure data/Questions.csv is available. Modify index_ES.py if required.
+```
+
+#### 6. Start the Backend Server
+Activate the virtual environment (if not already activated):
+```bash
+cd backend
+source venv/bin/activate  # For Linux/macOS
+
+# Start the FastAPI server:
+uvicorn main:app --reload
+```
+
+#### 7. Set Up the Frontend
+Navigate to the frontend directory:
+
+```bash
+cd ../frontend
+
+# Start the development server:
+npm run dev
+```
+
+
+### Additional links for my future references:
+https://github.com/elastic/start-local
 
 
 

@@ -30,7 +30,7 @@ const AboutPage = () => {
           <div className="flex justify-center mt-4 space-x-6">
             {/* LinkedIn Image Icon */}
             <a
-              href="https://linkedin.com/in/prashantkr23"
+              href="https://www.linkedin.com/in/prashant-mishra-0699441b0/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 transition duration-300"
@@ -39,7 +39,7 @@ const AboutPage = () => {
             </a>
             {/* GitHub Image Icon */}
             <a
-              href="https://github.com/prashantkr23"
+              href="https://github.com/Prashu7487"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-800 hover:text-gray-900 transition duration-300"
